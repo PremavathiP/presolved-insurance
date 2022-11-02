@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Auth, Hub } from "aws-amplify";
 import { Authenticator, Button, Flex, Heading, ThemeProvider, View } from '@aws-amplify/ui-react';
-import { updateAppUser } from '../store/reducers/user';
-import { navigate } from '@reach/router';
+import { updateUser } from '../store/reducers/user';
+import { navigate } from '@gatsbyjs/reach-router';
 
 import logo from '../assets/images/logo.png'
 import '@aws-amplify/ui-react/styles.css';
@@ -21,7 +21,7 @@ const OnboardClientSignupPage = () => {
             setState({ ...state, isLoggedin: true })
             const loginData = login?.attributes
             
-            dispatch(updateAppUser({ ...loginData }))
+            dispatch(updateUser({ ...loginData }))
             navigate("/signup/onboard")
         }).catch((ex)=>{
             console.info("No auth data available")

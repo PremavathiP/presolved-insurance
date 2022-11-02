@@ -1,5 +1,5 @@
 import { CalendarOutlined, CheckCircleOutlined, CloseOutlined, DownOutlined, ExclamationCircleOutlined, FileProtectOutlined, FileTextFilled, PlusOutlined } from '@ant-design/icons';
-import { redirectTo } from '@reach/router';
+import { redirectTo } from '@gatsbyjs/reach-router';
 import { Button, Card, Col, Dropdown, Form, Input, Layout, Menu, Modal, PageHeader, Row, Select, Tag, Switch } from 'antd';
 import { API } from 'aws-amplify';
 import React, { useEffect, useState } from 'react';

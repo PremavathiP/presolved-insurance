@@ -1,129 +1,106 @@
-import { Divider, Radio } from 'antd';
-import React, { useState } from 'react';
-import { Form, Input, Card } from 'antd';
 
-const OnBoardStep3Content = () => {
-    const [value, setValue] = useState(1);
-    const [subValue, setSubValue] = useState(1);
-    const [showOption, setShowOption] = useState(false);
+import React, { useEffect, useState } from 'react';
+import { Tabs, Button, Space } from 'antd';
+import PhoneConfigure from './configureChannel/phoneConfigure';
+import ChatConfigure from './configureChannel/chatConfigure';
+import EmailConfigure from './configureChannel/emailConfigure';
+import TabPane from 'antd/lib/tabs/TabPane';
 
-    const phoneNumberOptions =[
-        { label: 'Use my old phone number', value: 'oldNumber' },
-        { label: 'Allocate new number', value: 'newNumber' }
-    ];
+const ConfigureChannel = (props) => {
 
-    const phoneNumberSubOptions =[
-        { label: 'TFN', value: 'TFN' },
-        { label: 'DID', value: 'DID' }
-    ];
+    const selectedChannel = props.selectedChannel;
 
-    const onChange = (e) => {
-        console.log('radio checked', e.target.value);
-        setValue(e.target.value);
-        if (e.target.value === 'newNumber') {
-            setShowOption(true);
-        }
-        else setShowOption(false);
-    };
+    const [showPhone, setShowPhone] = useState(false);
+    const [showEmail, setShowEmail] = useState(false);
+    const [showChat, setShowChat] = useState(false);
 
-    const onChangeSubValue = (e) => {
-        console.log('radio checked', e.target.value);
-        setSubValue(e.target.value);
-    };
+    const [statePhone, setStatePhone] = useState({
+        phoneNumberType: "",
+        oldPhoneNumber: "",
+        newNumberSubOption: "",
+        noOfTFN: "",
+    });
 
-    const onFinishPhone = (values) => {
-        console.log('Success:', values);
-    };
+    const [stateEmail, setStateEmail] = useState({
+        emailAddress: "",
+        emailBox: "",
+        clientIdentifier: "",
+        clientSecret: ""
+    });
 
-    const onFinishFailedPhone = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
-    const onFinishChat = (values) => {
-        console.log('Success:', values);
-    };
+    const [stateChat, setStateChat] = useState({});
 
-    const onFinishFailedChat = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
-    const onFinishEmail = (values) => {
-        console.log('Success:', values);
-    };
+    console.log('selectedChannel', selectedChannel)
 
-    const onFinishFailedEmail = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
+    const setVisibleFunction = () => {
+        if (selectedChannel.some(item => (item === 'Phone')))
+            setShowPhone(true);
+        if (selectedChannel.some(item => (item === 'Email')))
+            setShowEmail(true);
+        if (selectedChannel.some(item => (item === 'Chat')))
+            setShowChat(true);
+    }
 
+    const phoneConfigure = (value) => {
+        setStatePhone(() => ({
+            ...statePhone,
+            phoneNumberType: value.phoneNumberType,
+            oldPhoneNumber: value.oldPhoneNumber,
+            newNumberSubOption: value.oldPhoneNumber,
+            noOfTFN: value.noOfTFN,
+        }));
+    }
+
+    const chatConfigure = (value) => {
+        console.log(value);
+    }
+    
+    const emailConfigure = (value) => {
+        setStateEmail(() => ({
+            ...stateEmail,
+            emailAddress: value.emailAddress,
+            emailBox: value.emailBox,
+            clientIdentifier: value.clientIdentifier,
+            clientSecret: value.clientSecret
+        }));
+    }
+
+    useEffect(() => {
+        setVisibleFunction();
+    }, []);
 
     return (
-        <Card
-            title="Details of channel"
-            bordered={true}
-            style={{
-                width: '100%',
-                height: '100%',
-            }}
-        >
-            <Form
-                name="phoneForm"
-                layout='vertical'
-                labelCol={{ span: 8 }}
-                wrapperCol={{ span: 14 }}
-                onFinish={onFinishPhone}
-                onFinishFailed={onFinishFailedPhone}
-                autoComplete="off"
+
+        <div>
+            <Tabs
+
+                size={'large'}
+                defaultActiveKey="1"
+                style={{
+                    marginBottom: 32,
+                }}
             >
-                <h3>Phone</h3>
-                <Form.Item>
-                    <Radio.Group onChange={onChange} value={value} name='phoneNumberRadio' options={phoneNumberOptions} optionType='button'/>
-                    <div style={{ marginTop: '20px' }}>
-                    {showOption && <h5>Choose option</h5>}
-                    {showOption && <Radio.Group onChange={onChangeSubValue} value={subValue} name='phoneNumberSubRadio' options={phoneNumberSubOptions} optionType='button'/> }
-                    </div>
-                </Form.Item>
-            </Form>
-            <Divider/>
-
-            <Form
-                name="chatForm"
-                layout='vertical'
-                labelCol={{ span: 8 }}
-                wrapperCol={{ span: 14 }}
-                onFinish={onFinishChat}
-                onFinishFailed={onFinishFailedChat}
-                autoComplete="off"
-            >
-                <h3>Chat</h3>
-                <Form.Item label='intents and utterance'>
-                    <Input/>
-                </Form.Item>
-            </Form>
-            <Divider/>
-
-            <Form
-                name="emailForm"
-                layout='vertical'
-                labelCol={{ span: 8 }}
-                wrapperCol={{ span: 14 }}
-                onFinish={onFinishEmail}
-                onFinishFailed={onFinishFailedEmail}
-                autoComplete="off"
-            >
-                <h3>Email</h3>
-                <Form.Item label='email ID'>
-                   <Input/>
-                </Form.Item>
-                <Form.Item label='specifications'>
-                   <Input/>
-                </Form.Item>
-            </Form>
-            <Divider/>
-
-        </Card>
-
+                {showPhone && <Tabs.TabPane tab="Phone" key="1" style={{ padding: '10px' }}>
+                    <PhoneConfigure phoneConfigure={phoneConfigure} />
+                </Tabs.TabPane>}
+                {showEmail && <Tabs.TabPane tab="Email" key="2" style={{ padding: '10px' }}>
+                    <EmailConfigure emailConfigure={emailConfigure} />
+                </Tabs.TabPane>
+                }
+                {showChat && <Tabs.TabPane tab="Chat" key="3" style={{ padding: '10px' }}>
+                    <ChatConfigure chatConfigure={chatConfigure} />
+                </Tabs.TabPane>
+                }
+            </Tabs>
+            <Space>
+                <Button type="primary">Next</Button>
+                <Button type="primary">Previous</Button>
+            </Space>
+        </div>
     );
 
 }
 
-export default OnBoardStep3Content;
+export default ConfigureChannel;
 
 

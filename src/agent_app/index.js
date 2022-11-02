@@ -1,4 +1,4 @@
-import { Router } from "@reach/router";
+import { Router } from "@gatsbyjs/reach-router";
 import React from "react";
 import { Provider } from 'react-redux';
 import AgentLoginPage from "./agent_login";

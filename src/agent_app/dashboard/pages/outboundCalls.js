@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Layout, PageHeader, Button, Form, Input, Row, Col, Card, Table, Modal } from 'antd';
 import { PlusCircleOutlined, UserOutlined, PhoneOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import '../assets/style/outbound.less'
-import { Link } from '@reach/router';
+import { Link } from '@gatsbyjs/reach-router';
 const { Content } = Layout;
 import { API, Auth } from 'aws-amplify'
 import CSVReader from 'react-csv-reader'

@@ -1,12 +1,10 @@
-import { Router } from "@reach/router";
+import { Router } from "@gatsbyjs/reach-router";
 import React, { Suspense } from "react";
 import { Provider } from 'react-redux';
 import { store } from './store';
-import Suspence from "../suspence";
-import OnBoardPage from "./pages/onboard-page";
-import 'antd/dist/antd.css'; 
-
-const SignupPage = React.lazy(() => import('./pages/signup'))
+import Suspence from "../suspence"
+const OnBoardPage = React.lazy(() => import('./pages/onboard-page'));
+const SignupPage = React.lazy(() => import('./pages/signup'));
 
 const OnboardAddIndexPage = () => {
     return (
