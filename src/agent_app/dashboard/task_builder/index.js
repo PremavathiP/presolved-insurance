@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { PlusOutlined, FileProtectOutlined, FileTextFilled, CloseOutlined, ExclamationCircleOutlined, DownOutlined, CalendarOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import '../assets/style/create-template.less'
 import { useSelector } from 'react-redux';
-import { Link, navigate } from '@reach/router';
+import { Link, navigate } from '@gatsbyjs/reach-router';
 
 const { Content } = Layout;
 const ManageTaskTemplates = (props) => {

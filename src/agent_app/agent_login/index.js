@@ -7,7 +7,7 @@ import 'antd/lib/style/themes/default.less';
 import '../../gc-components/connect-streams';
 
 import logo from '../dashboard/assets/images/new-big-logo.png'
-import { navigate } from '@reach/router';
+import { navigate } from '@gatsbyjs/reach-router';
 
 
 const AgentLoginPage = () => {

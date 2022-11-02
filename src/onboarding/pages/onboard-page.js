@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Layout } from 'antd';
-import OnBoardSidebar from '../layout/siderbar';
 import OnBoardHeader from '../layout/header';
 import { Content } from 'antd/lib/layout/layout';
 import OnBoardSteps from './steps/steps';
 import { useSelector } from 'react-redux';
-import { navigate } from '@reach/router';
-
+import { navigate } from '@gatsbyjs/reach-router';
+import '../assets/style/index.less';
+import 'antd/dist/antd.less';
+import 'antd/lib/style/themes/default.less';
 const OnBoardPage = () => {
 
   const user = useSelector((state) => state.user)
-  
+
   useEffect(() => {
-    if(!user.AppAuth.isLoggedin)
-    {
+    if (!user.isLoggedin) {
       navigate("/signup")
     }
   }, []);
@@ -21,23 +21,19 @@ const OnBoardPage = () => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
-    <Layout className='newdashboard'>
-      <OnBoardSidebar collapsed={collapsed} />
-      <Layout className="site-layout">
-        <OnBoardHeader setCollapsed={setCollapsed} collapsed={collapsed} />
-        <Content className="main" style={{ margin: '24px 16px 24px 16px' }}>
-          <div
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              background: '#fff',
-            }}
-          >
-            <OnBoardSteps/>
-          </div>
-        </Content>
+    <section className='onboard-page'>
+      <Layout className='onboard-page'>
+
+        <Layout className="site-layout">
+          <OnBoardHeader setCollapsed={setCollapsed} collapsed={collapsed} />
+          <Content className="main-onboard-page" >
+            <div className="site-layout-background">
+              <OnBoardSteps />
+            </div>
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
+    </section>
   )
 }
 

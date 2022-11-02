@@ -27,16 +27,22 @@
         },
         "presolvedinsurancemsgraph": {
           "deploymentBucketName": "amplify-presolvedinsurance-dev-211801-deployment",
-          "s3Key": "amplify-builds/presolvedinsurancemsgraph-LambdaLayerVersion06bca3b9-build.zip"
+          "s3Key": "amplify-builds/presolvedinsurancemsgraph-LambdaLayerVersion36d9c7bf-build.zip"
         },
         "GetMails": {
           "deploymentBucketName": "amplify-presolvedinsurance-dev-211801-deployment",
-          "s3Key": "amplify-builds/GetMails-61614f77494547794355-build.zip"
+          "s3Key": "amplify-builds/GetMails-315a333779516c564959-build.zip"
         }
       },
       "api": {
         "presolvedinsurance": {},
         "ConnectAPI": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2psmfmze7bmwp",
+          "type": "manual"
+        }
       }
     }
   }

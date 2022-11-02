@@ -10,7 +10,7 @@ section.client-signuppage {
     min-height: 90vh;
 
     .container {
-        
+
         width: 600px;
         height: 500px;
         box-shadow: #047d95 1px 2px 33px 0px;
@@ -30,6 +30,134 @@ section.client-signuppage {
         }
     }
 
-  
+
+
+}
+
+section.onboard-page {
+    header.ant-layout-header {
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    main.ant-layout-content.main-onboard-page {
+        background: #fff;
+        min-height: 100vh;
+        margin: 20px 30px;
+
+        .Steps {
+            .ant-steps.ant-steps-horizontal.ant-steps-label-horizontal {
+
+                .ant-steps-item {
+                    background-color: #2f2e41;
+                    padding: 20px;
+                    border-bottom: #d7d7d7 solid 1px;
+                    .ant-steps-item-icon {
+                        background: #6c63ff;
+                    }
+
+                    .ant-steps-item-title {
+                        color: rgb(203 199 255) !important;
+                    }
+                }
+            }
+
+            .steps-content {
+                .ant-steps-item-title {
+                    color: rgb(203 199 255) !important;
+                }
+
+                .imgsidebar {}
+
+                .sideimg {
+                    width: 100%;
+                }
+
+                .channels {
+                    * {
+                        color: #6c63ff !important;
+                    }
+
+
+                    display: flex;
+                    flex-direction: row;
+                    row-gap: 0;
+                    column-gap: 15px;
+
+
+
+                    .ant-card.ant-card-bordered.channel-item {
+                        width: 200px;
+                        box-shadow: 0 0 6px 0 #b2aeff;
+                        border-radius: 20px;
+
+                        .ant-switch-checked {
+                            background-color: #6c63ff;
+                        }
+                    }
+                }
+
+                .account-type {
+                    display: flex;
+                    flex-direction: row;
+                    row-gap: 0;
+                    column-gap: 15px;
+
+                    .items:hover {
+                        cursor: pointer;
+                        box-shadow: 0 0 6px 1px #6c63ff;
+                    }
+
+                    .items {
+                        .ant-card-head {
+                            padding: 0 24px;
+                            color: rgba(0, 0, 0, 0.85);
+                            font-weight: 500;
+                            font-size: 26px;
+                            border: 0;
+                            position: absolute;
+                            right: 8px;
+
+                            span {
+                                font-size: 22px;
+                            }
+                        }
+
+                        box-shadow: 0 0 6px 0 #b5b5b5;
+                        border-radius: 20px;
+                        width: auto;
+                    }
+
+                    .items.selected {
+                        box-shadow: 0 0 10px 3px #6c63ff;
+                    }
+
+                }
+
+                .steps-channel{
+                    .imgsidebar {
+                        padding: 20px;
+                    }
+                    label.ant-radio-button-wrapper.ant-radio-button-wrapper-checked.ant-radio-button-wrapper-in-form-item{
+                        background-color: #6c63ff;
+                        color: #fff;
+                    }
+                    .ant-steps-item-title{
+                        color: #2c22bb !important;
+                        font-size: 20px;
+                    }
+                }
+                .template-section{
+                    .sideimg {
+                        width: 100%;
+                    }
+    
+                }
+            }
+        }
+
+    }
 
 }

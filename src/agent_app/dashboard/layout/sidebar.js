@@ -8,7 +8,7 @@ import {
 import { Layout, Menu } from 'antd';
 import p3fsmall from '../assets/images/presolved-small-logo.png';
 import p3flogo from '../assets/images/new-big-logo.png'; //'../assets/images/p3f-full.png';
-import { Link } from '@reach/router';
+import { Link } from '@gatsbyjs/reach-router';
 const { Sider } = Layout;
 
 const DashboardSidebar = ({ collapsed }) => {

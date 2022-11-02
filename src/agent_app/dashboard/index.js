@@ -5,7 +5,7 @@ import 'antd/lib/style/themes/default.less';
 import './assets/style/theme.less';
 
 import { Layout, notification } from 'antd';
-import { Router } from '@reach/router';
+import { Router } from '@gatsbyjs/reach-router';
 import DashboardHeader from './layout/header';
 import DashboardSidebar from './layout/sidebar';
 import AgentIndexPage from './pages';

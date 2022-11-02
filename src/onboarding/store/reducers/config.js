@@ -7,12 +7,12 @@ const initialState = {
   },
 }
 
-export const config = createSlice({
-  name: 'config',
+export const signup = createSlice({
+  name: 'signup',
   initialState,
   reducers: {
 
-    updateTemplates: (state, action) => {
+    update: (state, action) => {
       const id = action.payload.id
       return {
         ...state,
@@ -26,6 +26,6 @@ export const config = createSlice({
   },
 })
 // Action creators are generated for each case reducer function
-export const { updateTemplates } = config.actions
+export const { update } = signup.actions
 
-export default config.reducer
+export default signup.reducer

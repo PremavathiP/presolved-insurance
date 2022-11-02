@@ -4,7 +4,7 @@ import React from 'react';
 import logo from './assets/images/logo.png';
 
 
-import { Link, Router } from '@reach/router';
+import { Link, Router } from '@gatsbyjs/reach-router';
 import 'antd/dist/antd.less';
 import './assets/style/index.less';
 import LandingContent from './content';

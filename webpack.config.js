@@ -1,3 +1,7 @@
+// this webpack is to run the cypress component testing
+/*
+    ./webpack.config.js
+*/
 /*
     ./webpack.config.js
 */
@@ -7,7 +11,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const NODE_ENV = "development"
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: path.join(__dirname, '../public/index.html'), 
+  template: path.join(__dirname, 'public/index.html'), 
   filename: "index.html",
   inject: "body"
 });
@@ -37,7 +41,7 @@ module.exports = {
   },
   output: {
     //path: path.resolve("dist")
-    path: path.resolve(__dirname, '../build'),
+    path: path.resolve(__dirname, 'build'),
     publicPath: '/'
   },
   module: {
